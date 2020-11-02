@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customers</h2>
+<h2>Customer Details</h2>
 @if (!Model.Any())
 {
     <p>We don't any customers yet</p>
@@ -14,7 +14,8 @@ else
     <table class="table table-bordered table-hover">
         <thread>
             <tr>
-                <th>Customer Details</th>
+                <th>Customer Name</th>
+                <th>Discount Rate</th>
             </tr>
         </thread>
         <tbody>
@@ -24,6 +25,7 @@ else
                     <td>
                         @Html.ActionLink(customer.Name,"Details","Customers", new {id = customer.Id}, null)
                     </td>
+                    <td>@customer.MembershipType.DiscountRate%</td>
                 </tr>
             }
         </tbody>
