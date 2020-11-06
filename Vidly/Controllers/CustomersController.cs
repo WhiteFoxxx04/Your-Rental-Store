@@ -24,7 +24,7 @@ namespace Vidly.Controllers
         {
             _context.Dispose();
         }
-
+        //Create Edit & Update Customers
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -55,6 +55,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
+        
 
         public ViewResult Index()
         {

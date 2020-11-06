@@ -215,6 +215,10 @@
     <Compile Include="Migrations\202011041611463_Genres.Designer.cs">
       <DependentUpon>202011041611463_Genres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011060625057_AnnotationChangedForMovies.cs" />
+    <Compile Include="Migrations\202011060625057_AnnotationChangedForMovies.Designer.cs">
+      <DependentUpon>202011060625057_AnnotationChangedForMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -226,6 +230,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\NewMovieViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +306,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011041611463_Genres.resx">
       <DependentUpon>202011041611463_Genres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011060625057_AnnotationChangedForMovies.resx">
+      <DependentUpon>202011060625057_AnnotationChangedForMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
