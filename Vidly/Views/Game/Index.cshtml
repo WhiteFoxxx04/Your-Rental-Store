@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Vidly.Models.Game>
+@{
+    ViewBag.Title = "Games";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Games</h2>
+<p>
+    @Html.ActionLink("Add New Game", "New", "Game", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Game</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var game in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(game.Name, "Details", "Game", new {id = game.Id}, null)</td>
+            <td>@game.Category.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -219,9 +220,19 @@
     <Compile Include="Migrations\202011060625057_AnnotationChangedForMovies.Designer.cs">
       <DependentUpon>202011060625057_AnnotationChangedForMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011080819402_AddGame.cs" />
+    <Compile Include="Migrations\202011080819402_AddGame.Designer.cs">
+      <DependentUpon>202011080819402_AddGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011080827027_PopulateCategories.cs" />
+    <Compile Include="Migrations\202011080827027_PopulateCategories.Designer.cs">
+      <DependentUpon>202011080827027_PopulateCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -232,6 +243,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\GameFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +320,9 @@
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Game\Details.cshtml" />
+    <Content Include="Views\Game\GameForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -350,6 +365,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011060625057_AnnotationChangedForMovies.resx">
       <DependentUpon>202011060625057_AnnotationChangedForMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011080819402_AddGame.resx">
+      <DependentUpon>202011080819402_AddGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011080827027_PopulateCategories.resx">
+      <DependentUpon>202011080827027_PopulateCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

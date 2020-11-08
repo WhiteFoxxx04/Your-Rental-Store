@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.MovieFormViewModel
+﻿@model Vidly.ViewModels.GameFormViewModel
 
 @{
     ViewBag.Title = Model.Title;
@@ -6,7 +6,7 @@
 
 <h2>@Model.Title</h2>
 
-@using (Html.BeginForm("Save", "Movies"))
+@using (Html.BeginForm("Save", "Game"))
 {
     @Html.ValidationSummary(true, "Please fix the following errors.")
     <div class="form-group">
@@ -15,14 +15,9 @@
         @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ReleaseDate)
-        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.ReleaseDate)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.GenreId)
-        @Html.DropDownListFor(m => m.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genres", new {@class = "form-control"})
-        @Html.ValidationMessageFor(m => m.GenreId)
+        @Html.LabelFor(m => m.CategoryId)
+        @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select Game Category", new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.CategoryId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.NumberInStock)
@@ -32,7 +27,7 @@
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
-    @Html.ActionLink("Back to Details", "Index", "Movies", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to Details", "Index", "Game", null, new { @class = "btn btn-primary" })
 }
 @section scripts
 {
