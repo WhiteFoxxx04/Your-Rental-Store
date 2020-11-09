@@ -83,31 +83,5 @@ namespace Vidly.Controllers
 
             return View("GameForm", viewModel);
         }
-
-        //public ViewResult Index()
-        //{
-        //    var games = GetGame();
-
-        //    return View(games);
-        //}
-
-        //public ActionResult Details(int id)
-        //{
-        //    var games = GetGame().SingleOrDefault(g => g.Id == id);
-
-        //    if (games == null)
-        //        return HttpNotFound();
-
-        //    return View(games);
-        //}
-
-        //private IEnumerable<Game> GetGame()
-        //{
-        //    return new List<Game>
-        //    {
-        //        new Game { Id = 1, Name = "Player Unknown Battle Ground" },
-        //        new Game { Id = 2, Name = "Call Of Duty" }
-        //    };
-        //}
     }
 }

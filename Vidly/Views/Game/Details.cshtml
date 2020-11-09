@@ -6,3 +6,9 @@
 }
 
 <h2>@Model.Name</h2>
+<ul>
+    <li>Category: @Model.Category.Name</li>
+    <li>Number in Stock: @Model.NumberInStock</li>
+    <li>Description : PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of South Korean video game company Bluehole.</li>
+</ul>
+@Html.ActionLink("Back to Details", "Index", "Game", null, new { @class = "btn btn-primary" })
