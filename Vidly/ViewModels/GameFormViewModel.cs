@@ -10,7 +10,9 @@ namespace Vidly.ViewModels
     public class GameFormViewModel
     {
         public IEnumerable<Category> Categories { get; set; }
+
         public Game Games { get; set; }
+
         public int? Id { get; set; }
 
         [Required]

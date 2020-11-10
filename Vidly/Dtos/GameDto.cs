@@ -18,6 +18,8 @@ namespace Vidly.Dtos
         [Required]
         public byte CategoryId { get; set; }
 
+        public CategoryDto Category { get; set; }
+
         [Range(1, 20)]
         public byte NumberInStock { get; set; }
     }

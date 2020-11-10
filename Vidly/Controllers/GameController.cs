@@ -23,9 +23,15 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        public ActionResult New()
+        public ViewResult Index()
+        {
+            return View();
+        }
+
+        public ViewResult New()
         {
             var categories = _context.Categories.ToList();
+
             var viewModel = new GameFormViewModel()
             {
                 Categories = categories
@@ -34,11 +40,51 @@ namespace Vidly.Controllers
             return View("GameForm", viewModel);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var game = _context.Games.SingleOrDefault(g => g.Id == id);
+
+            if (game == null)
+                return HttpNotFound();
+
+            var viewModel = new GameFormViewModel(game)
+            {
+                Categories = _context.Categories.ToList()
+            };
+
+            return View("GameForm", viewModel);
+        }
+
+
+        public ActionResult Details(int id)
+        {
+            var game = _context.Games.Include(m => m.Category).SingleOrDefault(m => m.Id == id);
+
+            if (game == null)
+                return HttpNotFound();
+
+            return View(game);
+
+        }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Game game)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new GameFormViewModel(game)
+                {
+                    Categories = _context.Categories.ToList()
+                };
+
+                return View("GameForm", viewModel);
+            }
+
             if (game.Id == 0)
+            {
                 _context.Games.Add(game);
+            }
             else
             {
                 var gameInDb = _context.Games.Single(c => c.Id == game.Id);
@@ -49,39 +95,6 @@ namespace Vidly.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Game");
-        }
-
-        public ViewResult Index()
-        {
-            var games = _context.Games.Include(c => c.Category).ToList();
-
-            return View(games);
-        }
-
-        public ActionResult Details(int id)
-        {
-            var games = _context.Games.Include(c => c.Category).SingleOrDefault(c => c.Id == id);
-
-            if (games == null)
-                return HttpNotFound();
-
-            return View(games);
-        }
-
-        public ActionResult Edit(int id)
-        {
-            var games = _context.Games.SingleOrDefault(c => c.Id == id);
-
-            if (games == null)
-                return HttpNotFound();
-
-            var viewModel = new GameFormViewModel()
-            {
-                Games = games,
-                Categories = _context.Categories.ToList()
-            };
-
-            return View("GameForm", viewModel);
         }
     }
 }

@@ -8,20 +8,59 @@
 <p>
     @Html.ActionLink("Add New Game", "New", "Game", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table table-bordered table-hover">
+<table id="games"  class="table table-bordered table-hover">
     <thead>
     <tr>
         <th>Game</th>
         <th>Category</th>
+        <th>Delete Games</th>
     </tr>
     </thead>
     <tbody>
-    @foreach(var game in Model)
-    {
-        <tr>
-            <td>@Html.ActionLink(game.Name, "Details", "Game", new {id = game.Id}, null)</td>
-            <td>@game.Category.Name</td>
-        </tr>
-    }
     </tbody>
 </table>
+
+@section scripts
+{
+<script>
+    $(document).ready(function () {
+        var table = $("#games").DataTable({
+            ajax: {
+                url: "/api/game",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "name",
+                    render: function(data, type, game) {
+                        return "<a href='/game/edit/" + game.id + "'>" + game.name + "</a>";
+                    }
+                },
+                {
+                    data: "category.name"
+                },
+                {
+                    data: "id",
+                    render: function(data) {
+                        return "<button class='btn-link js-delete' data-game-id=" + data + ">Delete</button>";
+                    }
+                }
+            ]
+        });
+        $("#games").on("click", ".js-delete", function () {
+            var button = $(this);
+            bootbox.confirm("Are you sure you want to delete this game?", function (result) {
+                if (result) {
+                    $.ajax({
+                        url: "/api/game/" + button.attr("data-game-id"),
+                        method: "DELETE",
+                        success: function () {
+                            table.row(button.parents("tr")).remove().draw();
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+}

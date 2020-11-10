@@ -18,6 +18,7 @@ namespace Vidly.App_Start
             Mapper.CreateMap<Game, GameDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<Genre, GenreDto>();
+            Mapper.CreateMap<Category, CategoryDto>();
 
             //Dto to Domain
             Mapper.CreateMap<CustomerDto, Customer>()
