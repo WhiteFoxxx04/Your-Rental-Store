@@ -42,6 +42,7 @@ namespace Vidly.Controllers.Api
 
         // POST /api/games
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageMoviesAndGames)]
         public IHttpActionResult CreateGame(GameDto gameDto)
         {
             if (!ModelState.IsValid)
@@ -57,6 +58,7 @@ namespace Vidly.Controllers.Api
 
         // PUT /api/games/1
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageMoviesAndGames)]
         public void UpdateGame(int id, GameDto gameDto)
         {
             if (!ModelState.IsValid)
@@ -74,6 +76,7 @@ namespace Vidly.Controllers.Api
 
         // DELETE /api/games/1
         [HttpDelete]
+        [Authorize(Roles = RoleName.CanManageMoviesAndGames)]
         public void DeleteGame(int id)
         {
             var gameInDb = _context.Games.SingleOrDefault(c => c.Id == id);

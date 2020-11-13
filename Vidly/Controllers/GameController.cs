@@ -44,6 +44,7 @@ namespace Vidly.Controllers
             return View("GameForm", viewModel);
         }
 
+        [Authorize(Roles = RoleName.CanManageMoviesAndGames)]
         public ActionResult Edit(int id)
         {
             var game = _context.Games.SingleOrDefault(g => g.Id == id);
@@ -73,6 +74,7 @@ namespace Vidly.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageMoviesAndGames)]
         public ActionResult Save(Game game)
         {
             if (!ModelState.IsValid)
