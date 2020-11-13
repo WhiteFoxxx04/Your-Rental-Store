@@ -10,6 +10,7 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        
         private ApplicationDbContext _context;
 
         public MoviesController()
@@ -22,11 +23,16 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        
         public ViewResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageMoviesAndGames))
+                return View("List");
+
+            return View("ReadOnlyList");
         }
 
+        [Authorize(Roles = RoleName.CanManageMoviesAndGames)]
         public ViewResult New()
         {
             var genres = _context.Genres.ToList();

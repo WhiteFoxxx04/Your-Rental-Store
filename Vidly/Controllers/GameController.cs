@@ -25,9 +25,13 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageMoviesAndGames))
+                return View("List");
+
+            return View("ReadOnlyList");
         }
 
+        [Authorize(Roles = RoleName.CanManageMoviesAndGames)]
         public ViewResult New()
         {
             var categories = _context.Categories.ToList();
