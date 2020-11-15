@@ -1,0 +1,27 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Game Rental Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rent Games</h2>
+<form id="newGameRental">
+    <div class="form-group">
+        <label>Customer</label>
+        <input id="customer" type="text" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Games</label>
+        <input id="game" type="text" value="" class="form-control" />
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <ul id="game" class="list-group"></ul>
+        </div>
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+</form>
