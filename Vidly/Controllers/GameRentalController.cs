@@ -8,7 +8,7 @@ namespace Vidly.Controllers
 {
     public class GameRentalController : Controller
     {
-        public ActionResult New()
+        public ActionResult RentGames()
         {
             return View();
         }
