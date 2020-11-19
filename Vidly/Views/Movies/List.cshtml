@@ -33,7 +33,7 @@
                 columns: [
                     {
                         data: "name",
-                        render: function(data, type, movie) {
+                        render: function (data, type, movie) {
                             return "<a href='/movies/edit/" + movie.id + "'>" + movie.name + "</a>";
                         }
                     },
@@ -42,7 +42,7 @@
                     },
                     {
                         data: "id",
-                        render: function(data) {
+                        render: function (data) {
                             return "<button class='btn-link js-delete' data-movie-id=" + data + ">Delete</button>";
                         }
                     }

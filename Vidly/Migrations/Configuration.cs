@@ -9,7 +9,7 @@ namespace Vidly.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Vidly.Models.ApplicationDbContext context)

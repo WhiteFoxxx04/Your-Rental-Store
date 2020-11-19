@@ -10,7 +10,6 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        
         private ApplicationDbContext _context;
 
         public MoviesController()
@@ -23,7 +22,6 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        
         public ViewResult Index()
         {
             if (User.IsInRole(RoleName.CanManageMoviesAndGames))
@@ -128,3 +126,4 @@ namespace Vidly.Controllers
         }
     }
 }
+

@@ -21,13 +21,15 @@ namespace Vidly.Controllers.Api
         }
 
         // GET /api/games
-        public IEnumerable<GameDto> GetGames()
+        public IEnumerable<GameDto> GetMovies()
         {
             return _context.Games
-                .Include(g => g.Category)
+                .Include(m => m.Category)
                 .ToList()
                 .Select(Mapper.Map<Game, GameDto>);
         }
+
+
 
         // GET /api/games/1
         public IHttpActionResult GetGames(int id)
