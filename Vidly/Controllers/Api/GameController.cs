@@ -21,15 +21,27 @@ namespace Vidly.Controllers.Api
         }
 
         // GET /api/games
-        public IEnumerable<GameDto> GetMovies()
+        //public IEnumerable<GameDto> GetGames()
+        //{
+        //    return _context.Games
+        //        .Include(m => m.Category)
+        //        .ToList()
+        //        .Select(Mapper.Map<Game, GameDto>);
+        //}
+
+        public IEnumerable<GameDto> GetGames(string query = null)
         {
-            return _context.Games
+            var gamesQuery = _context.Games
                 .Include(m => m.Category)
+                .Where(m => m.NumberInStock > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                gamesQuery = gamesQuery.Where(m => m.Name.Contains(query));
+
+            return gamesQuery
                 .ToList()
                 .Select(Mapper.Map<Game, GameDto>);
         }
-
-
 
         // GET /api/games/1
         public IHttpActionResult GetGames(int id)

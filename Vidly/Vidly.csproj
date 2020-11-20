@@ -199,10 +199,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\GameController.cs" />
+    <Compile Include="Controllers\Api\GameRentalsController.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\Api\MovieRentalsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GameRentalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MovieRentalController.cs" />
@@ -210,6 +212,7 @@
     <Compile Include="Dtos\CategoryDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\GameDto.cs" />
+    <Compile Include="Dtos\GameRentalsDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
@@ -290,11 +293,16 @@
     <Compile Include="Migrations\202011201400109_AddMovieRental1.Designer.cs">
       <DependentUpon>202011201400109_AddMovieRental1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011201413540_AddGameRentals.cs" />
+    <Compile Include="Migrations\202011201413540_AddGameRentals.Designer.cs">
+      <DependentUpon>202011201413540_AddGameRentals.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\GameRental.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -578,6 +586,7 @@
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
     <Content Include="Views\Game\ReadOnlyList.cshtml" />
     <Content Include="Views\MovieRental\New.cshtml" />
+    <Content Include="Views\GameRental\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -641,6 +650,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011201400109_AddMovieRental1.resx">
       <DependentUpon>202011201400109_AddMovieRental1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011201413540_AddGameRentals.resx">
+      <DependentUpon>202011201413540_AddGameRentals.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,17 +10,16 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                @*<li class="dropdown">
+                <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 New Rentals
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Rent Movies", "RentMovies", "MovieRental")</li>
-                <li>@Html.ActionLink("Rent Games", "RentGames", "GameRental")</li>
+                <li>@Html.ActionLink("Rent Movies", "New", "MovieRental")</li>
+                <li>@Html.ActionLink("Rent Games", "New", "GameRental")</li>
             </ul>
-        </li>*@
-                <li>@Html.ActionLink("New Rental", "New", "MovieRental")</li>
+        </li>
                 <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
                 <li>@Html.ActionLink("Movies", "Index", "Movies")</li>
                 <li>@Html.ActionLink("Games", "Index", "Game")</li>
