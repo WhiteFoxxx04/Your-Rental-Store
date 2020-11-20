@@ -10,14 +10,14 @@
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
-            <input id="customer" type="text" value="" class="form-control" />
+            <input id="customer" name="customer" required type="text" value="" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
         <label>Movie</label>
         <div class="tt-container">
-            <input id="movie" type="text" value="" class="form-control" />
+            <input id="movie" name="movie" required type="text" value="" class="form-control" />
         </div>
     </div>
 
@@ -32,7 +32,10 @@
 
 @section scripts
 {
+    @*Validation scripts*@
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
+        //Typeahead javascript code for customer
         $(document).ready(function () {
             var vm = {
                 //customerId: "",
@@ -56,6 +59,8 @@
             }).on("typeahead:select", function (e, customer) {
                 vm.customerId = customer.id;
             });
+
+            //typeahead javascript code for movies
             var movies = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -77,20 +82,49 @@
                 vm.movieIds.push(movie.id);
             });
 
-            $("#newRental").submit(function (e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "/api/movieRentals",
-                    method: "post",
-                    data: vm
-                })
-                    .done(function () {
-                        toastr.success("Rentals successfully recorded");
-                    })
-                    .fail(function () {
-                        toastr.error("Something unexpected error occurred");
-                    });
+            //Validation for adding a valid customer
+            $.validator.addMethod("validCustomer", function () {
+                return vm.customerId && vm.customerId !== 0;
+            }, "Please select a valid customer.");
+
+            //Validation for selec a valid movie
+            $.validator.addMethod("atLeastOneMovie", function () {
+                return vm.movieIds.length > 0;
+            }, "Please select at least one movie.");
+
+
+            //Toastr with submit validation
+            $("#newRental").validate({
+                submitHandler: function() {
+                    e.preventDefault();
+                    $.ajax({
+                            url: "/api/movieRentals",
+                            method: "post",
+                            data: vm
+                        })
+                        .done(function () {
+                            toastr.success("Rentals successfully recorded");
+                        })
+                        .fail(function () {
+                            toastr.error("Something unexpected happened");
+                        });   
+                }
             });
+             
+            //$("#newRental").submit(function (e) {
+            //    e.preventDefault();
+            //    $.ajax({
+            //        url: "/api/movieRentals",
+            //        method: "post",
+            //        data: vm
+            //    })
+            //        .done(function () {
+            //            toastr.success("Rentals successfully recorded");
+            //        })
+            //        .fail(function () {
+            //            toastr.error("Something unexpected happened");
+            //        });
+            //});
         });
     </script>
 }
