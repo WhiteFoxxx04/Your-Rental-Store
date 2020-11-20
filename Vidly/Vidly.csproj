@@ -199,11 +199,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\GameController.cs" />
-    <Compile Include="Controllers\Api\MovieController.cs" />
+    <Compile Include="Controllers\Api\MoviesController.cs" />
+    <Compile Include="Controllers\Api\MovieRentalsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MovieRentalController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CategoryDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Dtos\MovieRentalsDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -279,6 +282,10 @@
     <Compile Include="Migrations\202011151737323_AddNumberAvailableToGame.Designer.cs">
       <DependentUpon>202011151737323_AddNumberAvailableToGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011200819434_AddMovieRental.cs" />
+    <Compile Include="Migrations\202011200819434_AddMovieRental.Designer.cs">
+      <DependentUpon>202011200819434_AddMovieRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -290,6 +297,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieRental.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -559,6 +567,7 @@
     <Content Include="Views\Game\GameForm.cshtml" />
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
     <Content Include="Views\Game\ReadOnlyList.cshtml" />
+    <Content Include="Views\MovieRental\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -616,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011151737323_AddNumberAvailableToGame.resx">
       <DependentUpon>202011151737323_AddNumberAvailableToGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011200819434_AddMovieRental.resx">
+      <DependentUpon>202011200819434_AddMovieRental.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

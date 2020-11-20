@@ -32,6 +32,7 @@ namespace Vidly.Models
         public DbSet<Genre> Genres { get; set; }
         public DbSet <Game> Games { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<MovieRental> MovieRentals { get; set; }
 
         public static ApplicationDbContext Create()
         {
