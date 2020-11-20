@@ -286,6 +286,10 @@
     <Compile Include="Migrations\202011200819434_AddMovieRental.Designer.cs">
       <DependentUpon>202011200819434_AddMovieRental.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011201400109_AddMovieRental1.cs" />
+    <Compile Include="Migrations\202011201400109_AddMovieRental1.Designer.cs">
+      <DependentUpon>202011201400109_AddMovieRental1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -420,6 +424,8 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Content\typeahead.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -435,6 +441,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bloodhound.js" />
     <Content Include="Scripts\bloodhound.min.js" />
@@ -516,6 +524,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\typeahead.bundle.js" />
     <Content Include="Scripts\typeahead.bundle.min.js" />
     <Content Include="Scripts\typeahead.jquery.js" />
@@ -628,6 +638,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011200819434_AddMovieRental.resx">
       <DependentUpon>202011200819434_AddMovieRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011201400109_AddMovieRental1.resx">
+      <DependentUpon>202011201400109_AddMovieRental1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
