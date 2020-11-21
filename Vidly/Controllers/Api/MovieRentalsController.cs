@@ -21,25 +21,6 @@ namespace Vidly.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        // GET /api/rentals
-        public IEnumerable<MovieRentalsDto> GetMovieRentals()
-        {
-            return _context.MovieRentals
-                .ToList()
-                .Select(Mapper.Map<MovieRental, MovieRentalsDto>);
-        }
-
-        // GET /api/rentals/1
-        public IHttpActionResult GetMovieRental(int id)
-        {
-            var rentals = _context.MovieRentals.SingleOrDefault(g => g.Id == id);
-
-            if (rentals == null)
-                return NotFound();
-
-            return Ok(Mapper.Map<MovieRental, MovieRentalsDto>(rentals));
-        }
-
         [HttpPost]
         public  IHttpActionResult CreateNewMovieRentals(MovieRentalsDto newRentals)
         {

@@ -17,7 +17,7 @@
     <div class="form-group">
         <label>Games</label>
         <div class="tt-container">
-            <input id="game" name="game" required type="text" value="" class="form-control" />
+            <input id="game" name="game"  type="text" value="" class="form-control" />
         </div>
     </div>
 
@@ -94,20 +94,41 @@
             }, "Please select at least one game.");
 
             //Toastr with submit validation
-            $("#newRental").validate({
+            //$("#newRental").validate({
+            //    submitHandler: function () {
+            //        e.preventDefault();
+            //        $.ajax({
+            //                url: "/api/gameRentals",
+            //                method: "post",
+            //                data: vm
+            //            })
+            //            .done(function () {
+            //                toastr.success("Rentals successfully recorded");
+            //            })
+            //            .fail(function () {
+            //                toastr.error("Something unexpected happened");
+            //            });
+            //    }
+            //});
+            var validator = $("#newRental").validate({
                 submitHandler: function () {
-                    e.preventDefault();
                     $.ajax({
-                            url: "/api/gameRentals",
+                        url: "/api/gameRentals",
                             method: "post",
                             data: vm
                         })
                         .done(function () {
-                            toastr.success("Rentals successfully recorded");
+                            toastr.success("Rentals successfully recorded.");
+                            $("#customer").typeahead("val", "");
+                            $("#game").typeahead("val", "");
+                            $("#games").empty();
+                            vm = { movieIds: [] };
+                            validator.resetForm();
                         })
                         .fail(function () {
-                            toastr.error("Something unexpected happened");
+                            toastr.error("Something unexpected happened.");
                         });
+                    return false;
                 }
             });
         });
