@@ -17,6 +17,12 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
+.h1-about-title {
+    font-size: 72px !important;
+    color: lightgray;
+}
+
 body {
   margin: 0;
 }
